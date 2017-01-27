@@ -6,6 +6,7 @@ y lo separais de esta forma
 #include <stdio.h>
 #include <stdlib.h>
 #include <dir.h>
+#include <conio.h>
 
 #ifndef EMDB{
 #define
@@ -14,7 +15,8 @@ y lo separais de esta forma
 	if(mkdir(EMDB)!=0) {
   printf("Error al crear la carpeta\n");
 	}
-  else 
+  else {
   printf("Sea ha creado la carpeta %s\n",carpeta);
+	}
 	getch();
 }
