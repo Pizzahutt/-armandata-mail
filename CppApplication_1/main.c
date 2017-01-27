@@ -7,6 +7,42 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+/*ejemplo: poner una etiqueta que descriva que hace
+
+copias el codigo aqui completo y que funcione
+y lo separais de esta forma 
+
+-------------------------------------------------------------
+*/
+#include <stdio.h>
+
+#include <stdlib.h>
+
+//#include <dir.h>
+
+//#include <conio.h>
+
+
+#ifndef EMDB{
+#define
+	char EMDB[4];
+  
+	
+if(mkdir(EMDB)!=0) {
+  
+printf("Error al crear la carpeta\n");
+
+	}
+  
+else {
+ 
+ printf("Sea ha creado la carpeta %s\n",carpeta);
+	
+}
+
+	getch();
+}
+_________________________________________________________________
 
 /*
  * 
