@@ -23,27 +23,30 @@ y lo separais de esta forma
 //#include <conio.h>
 
 
-#ifndef EMDB{
-#define
+/*#ifndef EMDB
+
 	char EMDB[4];
   
-	
-if(mkdir(EMDB)!=0) {
+	void crear_raiz{
+             if(mkdir(EMDB)!=0) {
   
-printf("Error al crear la carpeta\n");
+                  printf("Error al crear la carpeta\n");
 
-	}
+	     }
   
-else {
+              else {
  
- printf("Sea ha creado la carpeta %s\n",carpeta);
+                  printf("Sea ha creado la carpeta %s\n",carpeta);
 	
-}
+                   }
 
-	getch();
-}
+	          getch();
+             
+        }
+      
+        
 _________________________________________________________________
-
+*/
 /*
  * 
  */
