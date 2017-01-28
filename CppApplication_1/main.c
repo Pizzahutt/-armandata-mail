@@ -7,51 +7,83 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-/*ejemplo: poner una etiqueta que descriva que hace
+#include <main.h>
 
-copias el codigo aqui completo y que funcione
-y lo separais de esta forma 
-
--------------------------------------------------------------
-*/
-#include <stdio.h>
-
-#include <stdlib.h>
-
-//#include <dir.h>
-
-//#include <conio.h>
-
-
-/*#ifndef EMDB
-
-	char EMDB[4];
-  
-	void crear_raiz{
-             if(mkdir(EMDB)!=0) {
-  
-                  printf("Error al crear la carpeta\n");
-
-	     }
-  
-              else {
- 
-                  printf("Sea ha creado la carpeta %s\n",carpeta);
-	
-                   }
-
-	          getch();
-             
-        }
-      
-        
-_________________________________________________________________
-*/
 /*
  * 
  */
+
+int mostrar_menu () {
+    int result;
+        printf(" Xx - Menu Email 1.0 - xX \n");
+        printf("Introduce una opción:  \n");
+        printf("1. Crear un nuevo Email \n");
+        printf("2. Listar carpeta \n");
+        printf("3. Visualizar EM \n");
+        printf("4. Borrar Email de EMconfig \n");
+        printf("5. Crear Carpeta \n");
+        printf("6. Borrar Carpeta \n");
+        printf("7. Copiar Email \n");
+        printf("8. Borrar Email de una carpeta \n");
+        printf("9. Introduce una opción (0 para salir) \n");
+        scanf("%d", &result);
+    return result; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 int main(int argc, char** argv) {
-    printf("!hhedf");
-    return (EXIT_SUCCESS);
+    
+if ((mostrar_menu()) != 0)
+    while ((mostrar_menu()) != 0 ) {
+        switch (mostrar_menu()) {
+            
+            case 1:
+                            
+                    break;
+            case 2:
+                            
+                    break;
+            case 3:
+                            
+                    break;
+            case 4:
+                            
+                    break;
+            case 5:
+                            
+                    break;
+            case 6:
+                
+                    break;
+            case 7:
+                
+                    break;                    
+            case 8:
+                
+                    break;            
+            case 9:
+                
+                    break;            
+            default:
+                    printf("\n\n\n\n\n\n\n\n");
+                   
+        }
+    }; 
+    
+  return (EXIT_SUCCESS);
 }
 
