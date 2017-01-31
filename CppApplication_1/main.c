@@ -4,10 +4,15 @@
  *
  * Created on 27 de enero de 2017, 17:06
  */
-
+#include <windows.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <main.h>
+#include "main.h"
+#include <time.h>
+
+
+
+
 
 /*
  * 
@@ -15,6 +20,7 @@
 
 int mostrar_menu () {
     int result;
+        printf(" \n ");
         printf(" Xx - Menu Email 1.0 - xX \n");
         printf("Introduce una opción:  \n");
         printf("1. Crear un nuevo Email \n");
@@ -27,6 +33,7 @@ int mostrar_menu () {
         printf("8. Borrar Email de una carpeta \n");
         printf("9. Introduce una opción (0 para salir) \n");
         scanf("%d", &result);
+        if ( result  > 10) printf("ERROR \n");
     return result; 
 }
 
@@ -46,13 +53,15 @@ int mostrar_menu () {
 
 
 int main(int argc, char** argv) {
-    
-if ((mostrar_menu()) != 0)
+
+    init();
+    if ((mostrar_menu()) != 0)
+              
     while ((mostrar_menu()) != 0 ) {
+         
         switch (mostrar_menu()) {
             
             case 1:
-                            
                     break;
             case 2:
                             
@@ -78,8 +87,8 @@ if ((mostrar_menu()) != 0)
             case 9:
                 
                     break;            
-            default:
-                    printf("\n\n\n\n\n\n\n\n");
+           
+                    
                    
         }
     }; 
