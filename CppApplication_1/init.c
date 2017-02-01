@@ -45,41 +45,42 @@ void init (void) {
             FILE *EMDBconf = fopen(".\\EMDB\\conf.txt", "w");
             fclose(EMDBconf);
            printf(GREEN"Archivo de configuración creado \n");
-    }     
-            
+    }
+    printf(GREEN"... \n");  
+    printf(GREEN"Programa Inicializado \n");  
+    
+        
     //WRITE FICHERO 
    int contador = 0; 
    EMDBconf = fopen(".\\EMDB\\conf.txt", "r+");
    
 /*------------------------------------------------------*/   
-   fprintf(EMDBconf, "Contador_ID:%d ",contador);
- 
+   fprintf(EMDBconf, "Contador_ID:%d \r\n",contador);
+   fprintf(EMDBconf,"\r\n");
+   fprintf(EMDBconf,"\r\n");
+   fprintf(EMDBconf,"EMAIL-DB \r\n");
+   fprintf(EMDBconf,"_______________ \r\n");
    
-   fprintf(EMDBconf,"EMAIL-DB EOL");
-   /*
-   for ( i = 0; EMDB[i][j].flag != NULL ; i++ ) {
-          for ( j = 0; EMDB[i][j].flag != 0 ; j++ ) {
-                fprintf(EMDBconf,"%s %s",EMDB[i][j].message_id,EMDB[i][j].subject);
+   for ( i = 0; EMDB[i][j].flag[0] != NULL ; i++ ) {
+          for ( j = 0; EMDB[i][j].flag[0] != NULL ; j++ ) {
+                fprintf(EMDBconf,"%s-%s \r\n",EMDB[i][j].message_id,EMDB[i][j].subject);
 
         }
     }
-   /*
-/*  
-   fprintf(EMDBconf,"FOLDER-DB\n------------\n");   
-   
-    for ( i = 0; folders[i].flag != 0 ; i++ ) {
-           fprintf(EMDBconf,"%s %s",folders[i].folder_id,folders[i].folder_name);
+ 
+   fprintf(EMDBconf,"\r\n");
+   fprintf(EMDBconf,"_______________ \r\n");
+   fprintf(EMDBconf,"\r\n");
+   fprintf(EMDBconf,"FOLDER-DB \r\n");   
+   fprintf(EMDBconf,"_______________ \r\n");
+
+    for ( i = 0; folders[i].flag[0] != NULL ; i++ ) {
+           fprintf(EMDBconf,"%s-%s \r\n",folders[i].folder_id,folders[i].folder_name);
     }
    
-    fprintf(EMDBconf,"\n------------\n");
+    fprintf(EMDBconf,"\r\n_______________\r\n");
     fprintf(EMDBconf,"END");
-    
-
-*/
-   
-   
-   
-       fclose(EMDBconf);
+    fclose(EMDBconf);
    
    
 /*------------------------------------------------------*/       
