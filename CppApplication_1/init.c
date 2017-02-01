@@ -18,11 +18,12 @@
 #define MAGENTA "\x1b[35m"
 #define CYAN    "\x1b[36m"
 
+int i,j;
 
 void init (void) {
   /*-----------------------------------------------------------------*/
     // CHECK FOLDER
-    
+ 
  printf(GREEN"Inicializando programa ... \n");
   if (CreateDirectory(".\\EMDB",NULL)) {
        printf(YELLOW"Detectado directorio EMDB no existente\nNuevo Directorio Creado");   
@@ -43,11 +44,59 @@ void init (void) {
             printf(YELLOW"Archivo de configuración no encontrado\n");
             FILE *EMDBconf = fopen(".\\EMDB\\conf.txt", "w");
             fclose(EMDBconf);
-            printf(GREEN"Archivo de configuración creado \n");
-  }
-/*-------------------------------------------------------------------------*/
+           printf(GREEN"Archivo de configuración creado \n");
+    }     
+            
+    //WRITE FICHERO 
+   int contador = 0; 
+   EMDBconf = fopen(".\\EMDB\\conf.txt", "r+");
+   
+/*------------------------------------------------------*/   
+   fprintf(EMDBconf, "Contador_ID:%d ",contador);
  
    
+   fprintf(EMDBconf,"EMAIL-DB EOL");
+   /*
+   for ( i = 0; EMDB[i][j].flag != NULL ; i++ ) {
+          for ( j = 0; EMDB[i][j].flag != 0 ; j++ ) {
+                fprintf(EMDBconf,"%s %s",EMDB[i][j].message_id,EMDB[i][j].subject);
+
+        }
+    }
+   /*
+/*  
+   fprintf(EMDBconf,"FOLDER-DB\n------------\n");   
+   
+    for ( i = 0; folders[i].flag != 0 ; i++ ) {
+           fprintf(EMDBconf,"%s %s",folders[i].folder_id,folders[i].folder_name);
+    }
+   
+    fprintf(EMDBconf,"\n------------\n");
+    fprintf(EMDBconf,"END");
+    
+
+*/
+   
+   
+   
+       fclose(EMDBconf);
+   
+   
+/*------------------------------------------------------*/       
+
+   }
+    
+
+ 
+
+
+
+   
+
+    
+    
+
+   
     
     
     
@@ -63,4 +112,3 @@ void init (void) {
    
     
     
-}
