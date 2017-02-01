@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/crear\ email.o \
 	${OBJECTDIR}/init.o \
 	${OBJECTDIR}/main.o
 
@@ -62,6 +63,12 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/cppapplication_1.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/cppapplication_1 ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+.NO_PARALLEL:${OBJECTDIR}/crear\ email.o
+${OBJECTDIR}/crear\ email.o: crear\ email.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -include main.h -include windows.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/crear\ email.o crear\ email.c
 
 ${OBJECTDIR}/init.o: init.c
 	${MKDIR} -p ${OBJECTDIR}

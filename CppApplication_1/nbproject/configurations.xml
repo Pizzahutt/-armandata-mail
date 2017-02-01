@@ -13,6 +13,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>crear email.c</itemPath>
       <itemPath>init.c</itemPath>
       <itemPath>main.c</itemPath>
     </logicalFolder>
@@ -27,6 +28,7 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>EMDB/Id_folder</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -44,6 +46,10 @@
           </incFile>
         </cTool>
       </compileType>
+      <item path="EMDB/Id_folder" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="crear email.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="init.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
@@ -71,6 +77,10 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="EMDB/Id_folder" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="crear email.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="init.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
