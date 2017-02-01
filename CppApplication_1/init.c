@@ -17,6 +17,8 @@
 #define BLUE    "\x1b[34m"
 #define MAGENTA "\x1b[35m"
 #define CYAN    "\x1b[36m"
+#define RESET   "\x1b[0m"
+
 
 int i,j;
 
@@ -26,11 +28,11 @@ void init (void) {
  
  printf(GREEN"Inicializando programa ... \n");
   if (CreateDirectory(".\\EMDB",NULL)) {
-       printf(YELLOW"Detectado directorio EMDB no existente\nNuevo Directorio Creado");   
+       printf(YELLOW"Detectado directorio EMDB no existente\nNuevo Directorio Creado"RESET);   
   } else {
-      printf(CYAN"Detectado directorio EMDB existente");
+      printf(CYAN"Detectado directorio EMDB existente"RESET);
   }
-  printf(GREEN"\n"GREEN"... \n");   
+  printf(GREEN"\n"GREEN"... \n"RESET);   
   
   /*----------------------------------------------------------------------*/
     // CHECK FICHERO 
@@ -39,20 +41,29 @@ void init (void) {
     fclose(EMDBconf);
     
     if ( EMDBconf != NULL ) {
-            printf(CYAN"Archivo de configuración encontrado\n");
+            printf(CYAN"Archivo de configuración encontrado\n"RESET);
     } else {
-            printf(YELLOW"Archivo de configuración no encontrado\n");
+            printf(YELLOW"Archivo de configuración no encontrado\n"RESET);
             FILE *EMDBconf = fopen(".\\EMDB\\conf.txt", "w");
             fclose(EMDBconf);
-           printf(GREEN"Archivo de configuración creado \n");
+           printf(GREEN"Archivo de configuración creado \n"RESET);
     }
-    printf(GREEN"... \n");  
-    printf(GREEN"Programa Inicializado \n");  
+    printf(GREEN"... \n"RESET);  
+    printf(GREEN"Programa Inicializado \n"RESET);  
     
         
     //WRITE FICHERO 
    int contador = 0; 
    EMDBconf = fopen(".\\EMDB\\conf.txt", "r+");
+ /*-----------------------------------------------------*/
+    folders[0].flag[0] = 1;
+    folders[0].folder_id[0] = 0;
+   // folders[0].folder_name[0] = "INBOX";
+            
+    folders[1].flag[0] = 1 ;
+    folders[1].folder_id[0] = 1;
+   // folders[1].folder_name[0] = "OUTBOX";
+            
    
 /*------------------------------------------------------*/   
    fprintf(EMDBconf, "Contador_ID:%d \r\n",contador);
@@ -75,7 +86,7 @@ void init (void) {
    fprintf(EMDBconf,"_______________ \r\n");
 
     for ( i = 0; folders[i].flag[0] != NULL ; i++ ) {
-           fprintf(EMDBconf,"%s-%s \r\n",folders[i].folder_id,folders[i].folder_name);
+           fprintf(EMDBconf,"%d %s \r\n",folders[i].folder_id[0],folders[i].folder_name[0]);
     }
    
     fprintf(EMDBconf,"\r\n_______________\r\n");
@@ -85,6 +96,29 @@ void init (void) {
    
 /*------------------------------------------------------*/       
 
+    // OUTFOLDER AND INBOX CONSTRUCT
+/*
+    typedef struct {
+    int                     flag[FLAGSize];
+    char                    folder_name[];
+    char                    folder_id[MAXId];
+}sfolder; 
+*/
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
    }
     
 
