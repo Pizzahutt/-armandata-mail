@@ -12,7 +12,7 @@
  */
 /*---- 1.DEFINES ------------------------------*/
 
-
+#ifndef DECLARED
 #define MAXEmail        100             //1
 #define MAXFolder       100             //2
 #define MAXBodies       100             //2
@@ -29,28 +29,33 @@
 
 /*---- 2.STRUCTS ------------------------------*/
 
-#ifndef DECLARED
 
+
+// element
 typedef struct  {
-    int                     flag[FLAGSize];
+    int                     flag;
+    int                     mail_id;
+    int                     folder_id;
     char                    to[MAXTO];
     char                    CC[MAXCc];
     char                    from[MAXFrom];
     char                    subject[MAXSubject];
     char                    fecha; 
-    char                    message_id[MAXId];
-    char                    folder_id[MAXId];
+
 }smail; 
 
+// element
  typedef struct {
-    int                     flag[FLAGSize];
+    int                     flag;
+    int                     mail_count;
+    int                     folder_id;
     char                    folder_name[MAXName];
-    char                    folder_id[MAXId];
-    
+  
+// element 
 }sfolder; 
 
 typedef struct  {
-    int                     flag[FLAGSize];
+    int                     flag;
     char                    struct_id[MAXId];
     char                    cuerpo[MAXCuerpo];
 }sbody;
@@ -61,14 +66,10 @@ typedef struct  {
 /*---- 4. BBDDs / ARRAYs ------------------------------*/
 
 
-smail EMDB[MAXFolder][MAXEmail];
 
-sfolder folders[MAXFolder]; 
-        
-sbody  bodies[MAXBodies];
 
 #define DECLARED
 #endif
 /*---------5.FUNCIONES -------------------------*/
 
-void init(void);
+void init();

@@ -12,8 +12,6 @@
 
 
 
-
-
 /*
  * 
  */
@@ -54,7 +52,14 @@ int mostrar_menu () {
 
 int main(int argc, char** argv) {
 
-    init();
+smail **EMDB[MAXFolder][MAXEmail];
+
+sfolder *folders[MAXFolder]; 
+        
+sbody  **bodies[MAXFolder][MAXEmail];
+
+
+init(&bodies,&folders,&EMDB);
     if ((mostrar_menu()) != 0)
               
     while ((mostrar_menu()) != 0 ) {

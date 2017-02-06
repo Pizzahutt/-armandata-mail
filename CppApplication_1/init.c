@@ -9,8 +9,9 @@
 #include "main.h"
 #include <time.h>
 #include <windows.h>
+#include <string.h>
 #include <unistd.h>
-
+#ifndef DEFINE_THIS
 #define RED     "\x1b[31m"
 #define GREEN   "\x1b[32m"
 #define YELLOW  "\x1b[33m"
@@ -18,12 +19,18 @@
 #define MAGENTA "\x1b[35m"
 #define CYAN    "\x1b[36m"
 #define RESET   "\x1b[0m"
+#define MAXEmail        100             //1
+#define MAXFolder       100             //2
+#define MAXBodies       100             //2
+#define DEFINE_THIS
+#endif
 
 
-int i,j;
+void init (smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0]) {
+  
 
-void init (void) {
-  /*-----------------------------------------------------------------*/
+ 
+/*-----------------------------------------------------------------*/
     // CHECK FOLDER
  
  printf(GREEN"Inicializando programa ... \n");
@@ -51,75 +58,93 @@ void init (void) {
     printf(GREEN"... \n"RESET);  
     printf(GREEN"Programa Inicializado \n"RESET);  
     
-        
-    //WRITE FICHERO 
-   int contador = 0; 
-   EMDBconf = fopen(".\\EMDB\\conf.txt", "r+");
- /*-----------------------------------------------------*/
-    folders[0].flag[0] = 1;
-    folders[0].folder_id[0] = 0;
-   // folders[0].folder_name[0] = "INBOX";
-            
-    folders[1].flag[0] = 1 ;
-    folders[1].folder_id[0] = 1;
-   // folders[1].folder_name[0] = "OUTBOX";
-            
+/*----------------------------------------------------------------------------------------------------*/
+    int _i;
+    int _j;
+    char src[50];
+    char dest[50];
+    
+                                                                                // FLAGS DE EMDB A 0
+    for (_i = 0; _i < MAXEmail; _i++  ) {
+        for (_j = 0; _j < MAXFolder ; _j++  ) {
+        EMDB[_i][_j].flag = 0 ;
+       }
+    }
+    
+    // PARA INBOX FIJO UNOS DATOS
+    folders[0].flag = 1;
+    folders[0].folder_id = 0;
+    folders[0].mail_count = 0;
+    memset(dest, '\0', sizeof(folders[0].folder_name[0]));
+    strlcpy(src, "INBOX",MAXName);
+    strlcpy(dest, src,MAXName);
+    printf("Final copied string : %s\n", dest);
+
+    
+    // PARA OUTBOX FIJO OTROS DATOS
+    folders[1].flag = 1;
+    folders[1].folder_id = 1;
+    folders[1].mail_count = 0;
+    memset(dest, '\0', sizeof(folders[0].folder_name[0]));
+    strlcpy(src, "OUTBOX",MAXName);
+    strlcpy(dest, src,MAXName);
+    printf("Final copied string : %s\n", dest);
+    
+    
+    
+    
+    
+    
+    
    
-/*------------------------------------------------------*/   
+    
+   int contador; 
+  
+   
+   EMDBconf = fopen(".\\EMDB\\conf.txt", "r+");
+   
+
    fprintf(EMDBconf, "Contador_ID:%d \r\n",contador);
    fprintf(EMDBconf,"\r\n");
    fprintf(EMDBconf,"\r\n");
    fprintf(EMDBconf,"EMAIL-DB \r\n");
    fprintf(EMDBconf,"_______________ \r\n");
-   
-   for ( i = 0; EMDB[i][j].flag[0] != NULL ; i++ ) {
-          for ( j = 0; EMDB[i][j].flag[0] != NULL ; j++ ) {
-                fprintf(EMDBconf,"%s-%s \r\n",EMDB[i][j].message_id,EMDB[i][j].subject);
+
+   for ( _i = 0; EMDB[_i][_j].flag != 0 ; _i++ ) {
+          for ( _j = 0; EMDB[_i][_j].flag != 0 ; _j++ ) {
+                fprintf(EMDBconf,"%d %c \r\n",EMDB[_i][_j].mail_id,EMDB[_i][_j].subject[0]);
 
         }
     }
- 
+   
+
    fprintf(EMDBconf,"\r\n");
    fprintf(EMDBconf,"_______________ \r\n");
    fprintf(EMDBconf,"\r\n");
    fprintf(EMDBconf,"FOLDER-DB \r\n");   
    fprintf(EMDBconf,"_______________ \r\n");
+   
+    char *buffer[50];
 
-    for ( i = 0; folders[i].flag[0] != NULL ; i++ ) {
-           fprintf(EMDBconf,"%d %s \r\n",folders[i].folder_id[0],folders[i].folder_name[0]);
+    for ( _i = 0; folders[_i].flag != 0 ; _i++ ) {
+         
+          fprintf(EMDBconf,"%d-",folders[_i].folder_id);
+          fprintf(EMDBconf,"%s",folders[_i].folder_name[0]);
+          
+    fprintf(EMDBconf,"\r\n");      
     }
    
+
     fprintf(EMDBconf,"\r\n_______________\r\n");
     fprintf(EMDBconf,"END");
-    fclose(EMDBconf);
    
    
 /*------------------------------------------------------*/       
 
-    // OUTFOLDER AND INBOX CONSTRUCT
-/*
-    typedef struct {
-    int                     flag[FLAGSize];
-    char                    folder_name[];
-    char                    folder_id[MAXId];
-}sfolder; 
-*/
+fclose(EMDBconf);
 
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
    }
+
     
 
  

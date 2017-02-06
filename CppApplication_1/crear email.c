@@ -10,11 +10,12 @@
 #include <time.h>
 
 crear_email(){                //declaro la fucion
+   /*
     int i;
     int contador;
     int posicion = 13;
     char a;
-    int ia;
+    /*
     FILE *EMDBconf = fopen(".\\EMDB\\conf.txt", "r+");
     
     for ( i = 0; i < posicion; i++)  {
@@ -24,9 +25,7 @@ crear_email(){                //declaro la fucion
     
     fclose(EMDBconf);
     
-    ia = a - "0";
     
-    printf("%d",ia);
     
    /* 
     
