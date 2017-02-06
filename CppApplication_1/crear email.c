@@ -58,7 +58,7 @@ void crear_email(smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0]){      
       
     printf("\n From:");
     
-    scanf("%s",buffer);
+    scanf("%s",buffer); //ReadChain
     strlcpy(EMDB[0][contador].from,buffer,50);
     
     printf("%s",EMDB[0][contador].from); 
@@ -92,9 +92,14 @@ void crear_email(smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0]){      
     strlcpy(bodies[0][contador].cuerpo,buffer,50);
     
     
-
-    
     /* INTRODUCIR AQUI LA ESCRITURA DEL DOCUMENTO (FPRINTF)*/
+    char strtemp[MAXName];
+    char strmail[MAXName] = ".\\EMDB\\";
+    sprintf(strtemp, "%i_%s.txt",EMDB[0][contador].folder_id ,EMDB[0][contador].subject );
+    strcat(strmail, strtemp); 
+    
+    printf("%s", strmail); 
+    
     
     
     
