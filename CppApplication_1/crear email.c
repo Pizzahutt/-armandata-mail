@@ -55,42 +55,37 @@ void crear_email(smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0]){      
     printf("Interfaz crear mensaje.Rellena los campos siguientes:  ");
     char buffer[50]; 
     
-      
+    //------------------  
     printf("\n From:");
-    
-    scanf("%s",buffer); //ReadChain
+    scanf("%[^\n]",buffer); 
     strlcpy(EMDB[0][contador].from,buffer,50);
-    
     printf("%s",EMDB[0][contador].from); 
-    
-   
+    //-----------------
     printf("\n Fecha");
-    
-    scanf("%s",buffer);
+    scanf("%[^\n]",buffer); 
     strlcpy(EMDB[0][contador].from,buffer,50);
-    
-    
+    //-----------------
     printf("\n To:");
     buffer[0] = '\0';
-    scanf("%s",buffer);
+    scanf("%[^\n]",buffer);
     strlcpy(EMDB[0][contador].to,buffer,50);
-    
+    //-----------------
     printf("\n CC:");
-     fflush( stdin );
-    scanf("%s",buffer);
+    fflush( stdin );
+    scanf("%[^\n]",buffer);
     strlcpy(EMDB[0][contador].from,buffer,50);
-    
+    //-----------------
     printf("\n Header:");
-     fflush( stdin );
-    scanf("%s",buffer);
+    fflush( stdin );
+    scanf("%[^\n]",buffer);
     strlcpy(EMDB[0][contador].subject,buffer,50);
-    
+    //-----------------
     printf("\n Body:");
     fflush( stdin );
-    bodies[0][contador].flag = 1;
-    scanf("%s",buffer);
+    scanf("%[^\n]",buffer);
     strlcpy(bodies[0][contador].cuerpo,buffer,50);
-    
+    bodies[0][contador].flag = 1;
+    /***********************************************************************/
     
     /* INTRODUCIR AQUI LA ESCRITURA DEL DOCUMENTO (FPRINTF)*/
     char strtemp[MAXName];
