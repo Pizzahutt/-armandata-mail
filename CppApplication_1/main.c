@@ -58,15 +58,18 @@ sfolder *folders[MAXFolder];
         
 sbody  **bodies[MAXFolder][MAXEmail];
 
+int mail_gl = 0;
+int folder_gl = 0;
 
 init(&bodies,&folders,&EMDB);
+crear_email(&bodies,&folders,&EMDB);
     if ((mostrar_menu()) != 0)
               
     while ((mostrar_menu()) != 0 ) {
          
         switch (mostrar_menu()) {
             
-            case 1:
+            case 1: 
                     break;
             case 2:
                             
