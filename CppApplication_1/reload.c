@@ -1,14 +1,10 @@
-
 #include <stdio.h>
 #include <stdlib.h>
-
 #include "main.h"
 #include <time.h>
 #include <windows.h>
 #include <string.h>
 #include <unistd.h>
-#include <strings.h>
-
 #ifndef DEFINE_THIS
 #define RED     "\x1b[31m"
 #define GREEN   "\x1b[32m"
@@ -20,54 +16,34 @@
 #define MAXEmail        100             //1
 #define MAXFolder       100             //2
 #define MAXBodies       100             //2
+#define cont_pos        13
 #define DEFINE_THIS
 #endif
 
 
-void init (smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0]) {
-  
- 
-/*-----------------------------------------------------------------*/
-    // CHECK FOLDER
- printf(GREEN"Inicializando programa ... \n");
-  if (CreateDirectory(".\\EMDB",NULL)) {
-       printf(RESET YELLOW"Detectado directorio EMDB no existente\n Nuevo Directorio Creado");   
-  } else {
-      printf(RESET CYAN"Detectado directorio EMDB existente");
-  }
-  printf(GREEN"\n"GREEN"... \n"RESET);   
-  
-  /*----------------------------------------------------------------------*/
-    // CHECK FICHERO 
-  
-    FILE *EMDBconf = fopen(".\\EMDB\\conf.txt", "r");
-    fclose(EMDBconf);
+
+void reload_conf( smail EMDB[0][0], sfolder folders[0], int contador) {                                            //pasale las structs
     
-    if ( EMDBconf != NULL ) {
-            printf(CYAN"Archivo de configuración encontrado\n"RESET);
-    } else {
-            printf(YELLOW"Archivo de configuración no encontrado\n"RESET);
-            FILE *EMDBconf = fopen(".\\EMDB\\conf.txt", "w");
-            fclose(EMDBconf);
-           printf(GREEN"Archivo de configuración creado \n"RESET);
-    }
-    printf(GREEN"... \n"RESET);  
-    printf(GREEN"Programa Inicializado \n"RESET);  
-    
-/*----------------------------------------------------------------------------------------------------*/
+  
+
+   
+/*------------------------------------------------------*/
+  
     int _i;
     int _j;
     char src[50];
     char dest[50];
     int bufffer[50];
-                                                                                // FLAGS DE EMDB A 0
+                                                                             // FLAGS DE EMDB A 0
     for (_i = 0; _i < MAXEmail; _i++  ) {
         for (_j = 0; _j < MAXFolder ; _j++  ) {
         EMDB[_i][_j].flag = 0 ;
        }
     }
     
-    // PARA INBOX FIJO UNOS DATOS
+    
+     
+    // PARA INBOX FIJO UNOS DATOS 
     folders[0].flag = 1;
     folders[0].folder_id = 0;
     folders[0].mail_count = 0;
@@ -75,7 +51,8 @@ void init (smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0]) {
     
 
     
-    // PARA OUTBOX FIJO OTROS DATOS
+    // PARA OUTBOX FIJO OTROS DATOS 
+    
     folders[1].flag = 1;
     folders[1].folder_id = 1;
     folders[1].mail_count = 0;
@@ -84,15 +61,8 @@ void init (smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0]) {
   
    // INCREMENTO DE CONTADOR Y RECARGA DE FICHERO 
      
-//    reload(&EMDB,&folders,0); 
-    
-    
-    
-   int contador; 
-  
    
-   EMDBconf = fopen(".\\EMDB\\conf.txt", "w+");
-   
+   FILE *EMDBconf = fopen(".\\EMDB\\conf.txt", "w+");
 
    fprintf(EMDBconf, "Contador_ID:%d \r\n",contador);
    fprintf(EMDBconf,"\r\n");
@@ -120,41 +90,63 @@ void init (smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0]) {
     fprintf(EMDBconf,"\r\n");      
     }
     fprintf(EMDBconf,"_______________\r\n");
-  
-   
-   
-/*------------------------------------------------------*/     /*  
+ 
+/*------------------------------------------------------*/       
     fprintf(EMDBconf,"END");
-*/
-            
+
 fclose(EMDBconf);
 
    }
 
+// esto son funciones auxiliares para mi mismo
+    
+void show_mail (smail EMDB[0][0], int fila,int col ) {
+    printf("Flag: %d \r\n" ,EMDB[fila][col].flag);
+    printf("Mail_id: %d \r\n" ,EMDB[fila][col].mail_id);
+    printf("From: %s \r\n" ,EMDB[fila][col].from);
+    printf("To: %s \r\n" ,EMDB[fila][col].to);
+    printf("CC: %s \r\n" ,EMDB[fila][col].CC);
+    printf("Subject: %s \r\n" ,EMDB[fila][col].subject);
+    printf("Fecha: %s \r\n" ,EMDB[fila][col].fecha);   
+}
+
+void show_folder(sfolder folders[0], int fila) {
+    printf("From: %d \r\n" ,folders[fila].flag);
+    printf("From: %d \r\n" ,folders[fila].mail_count);
+    printf("From: %s \r\n" ,folders[fila].folder_name);
+    printf("From: %d \r\n" ,folders[fila].erasable);
+    
+}
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 
- 
 
 
 
-   
 
-    
-    
 
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
-    
-    
+
+
+
+
+
+
+
+
+
+
+

@@ -37,7 +37,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/crear\ email.o \
 	${OBJECTDIR}/init.o \
-	${OBJECTDIR}/main.o
+	${OBJECTDIR}/list_folder.o \
+	${OBJECTDIR}/main.o \
+	${OBJECTDIR}/reload.o
 
 
 # C Compiler Flags
@@ -75,10 +77,20 @@ ${OBJECTDIR}/init.o: init.c
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/init.o init.c
 
+${OBJECTDIR}/list_folder.o: list_folder.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/list_folder.o list_folder.c
+
 ${OBJECTDIR}/main.o: main.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
+
+${OBJECTDIR}/reload.o: reload.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/reload.o reload.c
 
 # Subprojects
 .build-subprojects:

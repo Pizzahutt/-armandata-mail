@@ -31,7 +31,7 @@ int mostrar_menu () {
         printf("8. Borrar Email de una carpeta \n");
         printf("9. Introduce una opción (0 para salir) \n");
         scanf("%d", &result);
-        if ( result  > 10) printf("ERROR \n");
+        if ( result  > 10) printf("\x1b[31m ERROR \n \x1b[0m");
     return result; 
 }
 
@@ -58,16 +58,21 @@ sfolder *folders[MAXFolder];
         
 sbody  **bodies[MAXFolder][MAXEmail];
 
-int mail_gl = 0;
-int folder_gl = 0;
+int mail_gl = 0;                        
+int folder_gl = 2;
+int opcion;
 
 init(&bodies,&folders,&EMDB);
-crear_email(&bodies,&folders,&EMDB);
-    if ((mostrar_menu()) != 0)
+//crear_email(&bodies,&folders,&EMDB, mail_gl);
+//mail_gl++;
+//reload_conf(&EMDB,&folders, mail_gl); 
+//list_folder(&EMDB,&folders);
+                   
+                   
               
-    while ((mostrar_menu()) != 0 ) {
+    while ((opcion = mostrar_menu()) != 0 ) {
          
-        switch (mostrar_menu()) {
+        switch (opcion) {
             
             case 1: 
                     break;
@@ -99,8 +104,8 @@ crear_email(&bodies,&folders,&EMDB);
                     
                    
         }
-    }; 
-    
+    } 
+  
   return (EXIT_SUCCESS);
 }
 

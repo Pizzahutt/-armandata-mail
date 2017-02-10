@@ -24,7 +24,7 @@
 #define MAXId           50             //6
 #define MAXCuerpo       3000            //7
 #define MAXSubject      100             //8
-#define MAXName         100             //9
+#define MAXName         50             //9
 #define FLAGSize        0     
 
 /*---- 2.STRUCTS ------------------------------*/
@@ -35,21 +35,23 @@
 typedef struct  {
     int                     flag;
     int                     mail_id;
-    int                     folder_id;
+    int                     folders_id[MAXFolder];
     char                    to[MAXTO];
     char                    CC[MAXCc];
     char                    from[MAXFrom];
     char                    subject[MAXSubject];
-    char                    fecha; 
+    char                    fecha[MAXName]; 
 
 }smail; 
 
 // element
  typedef struct {
     int                     flag;
+    int                     mail_pos[MAXEmail];
     int                     mail_count;
     int                     folder_id;
     char                    folder_name[MAXName];
+    int                     erasable;
   
 // element 
 }sfolder; 
@@ -72,4 +74,20 @@ typedef struct  {
 #endif
 /*---------5.FUNCIONES -------------------------*/
 
+//auxiliares
+
+
+
+
+// principales
+
 void init();
+void crear_email();
+
+#ifndef reload 
+void reload_conf();
+void list_folder();
+void show_mail();
+void show_folder(); 
+#define reload
+#endif

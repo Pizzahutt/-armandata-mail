@@ -37,7 +37,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/crear\ email.o \
 	${OBJECTDIR}/init.o \
-	${OBJECTDIR}/main.o
+	${OBJECTDIR}/list_folder.o \
+	${OBJECTDIR}/main.o \
+	${OBJECTDIR}/reload.o
 
 
 # C Compiler Flags
@@ -68,17 +70,27 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/cppapplication_1.exe: ${OBJECTFILES}
 ${OBJECTDIR}/crear\ email.o: crear\ email.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -include main.h -include windows.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/crear\ email.o crear\ email.c
+	$(COMPILE.c) -g -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/crear\ email.o crear\ email.c
 
 ${OBJECTDIR}/init.o: init.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -include main.h -include windows.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/init.o init.c
+	$(COMPILE.c) -g -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/init.o init.c
+
+${OBJECTDIR}/list_folder.o: list_folder.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/list_folder.o list_folder.c
 
 ${OBJECTDIR}/main.o: main.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -include main.h -include windows.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
+	$(COMPILE.c) -g -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
+
+${OBJECTDIR}/reload.o: reload.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/reload.o reload.c
 
 # Subprojects
 .build-subprojects:
