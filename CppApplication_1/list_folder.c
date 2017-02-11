@@ -21,11 +21,12 @@
 #define DEFINE_THIS
 #endif
 
-
-void list_folder( smail EMDB[0][0], sfolder folders[0]) {
+/*
+ * 
+void list_folder( struct EMDB[0][0], sfolder folders[0]) {*/
     
 /*-------------------------------------------------------------*/    
-    int _i;
+  /*  int _i;
     int _j;
     int indice;
     
@@ -35,12 +36,20 @@ void list_folder( smail EMDB[0][0], sfolder folders[0]) {
     printf("%d-%s",folders[_i].folder_id,folders[_i].folder_name);    
     printf("\n");      
     }
-/*-------------------------------------------------------------------*/    
-    printf("(Introduce el numero a la izquierda):");
+    
+    printf("(Introduce el numero a la izquierda):\n");
     scanf("%d",&indice);
-     
-          for ( _j = 0; EMDB[indice][_j].flag != 0 ; _j++ ) {
+    if (EMDB[indice][_j].flag == 0 ) {
+        printf("No hay nada en esta carpeta \n"); 
+    }
+    else {
+        
+    
+          for ( _j = 0; EMDB[indice][_j].flag == 1 ; _j++ ) {
                 printf("%d-%s\r\n",EMDB[_i][_j].mail_id,EMDB[_i][_j].subject);
           }
-    
-}                                          
+    }
+}   
+
+
+*/

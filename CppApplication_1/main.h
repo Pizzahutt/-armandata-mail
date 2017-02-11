@@ -42,7 +42,7 @@ typedef struct  {
     char                    subject[MAXSubject];
     char                    fecha[MAXName]; 
 
-}smail; 
+} smail ; 
 
 // element
  typedef struct {
@@ -89,5 +89,10 @@ void reload_conf();
 void list_folder();
 void show_mail();
 void show_folder(); 
+void crear_folder();
+void borrar_folder();
+void visualizar_EM();
+void borrar_EMconf();
+void borrar_EMhard();
 #define reload
 #endif

@@ -23,12 +23,18 @@
 #define DEFINE_THIS
 #endif
 
-
-void init (smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0]) {
+/*
+void init (smail EMDB[0][0], sfolder folders[50],sbody bodies[0][0]) {
+    
+    int _i;
+    int _j;
+    char src[50];
+    char dest[50];
+    int bufffer[50];
   
  
-/*-----------------------------------------------------------------*/
-    // CHECK FOLDER
+/*-----------------------------------------------------------------*//*
+    // CHECK FOLDER/*
  printf(GREEN"Inicializando programa ... \n");
   if (CreateDirectory(".\\EMDB",NULL)) {
        printf(RESET YELLOW"Detectado directorio EMDB no existente\n Nuevo Directorio Creado");   
@@ -38,8 +44,8 @@ void init (smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0]) {
   printf(GREEN"\n"GREEN"... \n"RESET);   
   
   /*----------------------------------------------------------------------*/
-    // CHECK FICHERO 
-  
+    // CHECK FICHERO /*
+  /*
     FILE *EMDBconf = fopen(".\\EMDB\\conf.txt", "r");
     fclose(EMDBconf);
     
@@ -50,29 +56,32 @@ void init (smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0]) {
             FILE *EMDBconf = fopen(".\\EMDB\\conf.txt", "w");
             fclose(EMDBconf);
            printf(GREEN"Archivo de configuración creado \n"RESET);
+           
+
+           
     }
     printf(GREEN"... \n"RESET);  
     printf(GREEN"Programa Inicializado \n"RESET);  
     
 /*----------------------------------------------------------------------------------------------------*/
-    int _i;
-    int _j;
-    char src[50];
-    char dest[50];
-    int bufffer[50];
-                                                                                // FLAGS DE EMDB A 0
+/*
+                                                                        // FLAGS DE EMDB A 0
     for (_i = 0; _i < MAXEmail; _i++  ) {
         for (_j = 0; _j < MAXFolder ; _j++  ) {
-        EMDB[_i][_j].flag = 0 ;
+        EMDB[_i][_j].flag = 1 ;
        }
     }
     
+    
+    
+    
+ /*
     // PARA INBOX FIJO UNOS DATOS
     folders[0].flag = 1;
     folders[0].folder_id = 0;
     folders[0].mail_count = 0;
-    strlcpy(folders[0].folder_name,"INBOX",MAXName);
-    
+    strcpy(folders[0].folder_name,"INBOX");
+    sprintf(folders[0].folder_name,"INBOX");
 
     
     // PARA OUTBOX FIJO OTROS DATOS
@@ -126,10 +135,10 @@ void init (smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0]) {
 /*------------------------------------------------------*/     /*  
     fprintf(EMDBconf,"END");
 */
-            
-fclose(EMDBconf);
+           /**/ 
+//fclose(EMDBconf);
 
-   }
+//   }
 
     
 

@@ -35,7 +35,12 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Visualizar_EM.o \
+	${OBJECTDIR}/borrarEMhard.o \
+	${OBJECTDIR}/borrar_EMconf.o \
+	${OBJECTDIR}/borrar_folder.o \
 	${OBJECTDIR}/crear\ email.o \
+	${OBJECTDIR}/crear_folder.o \
 	${OBJECTDIR}/init.o \
 	${OBJECTDIR}/list_folder.o \
 	${OBJECTDIR}/main.o \
@@ -66,31 +71,56 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/cppapplication_1.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/cppapplication_1 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/Visualizar_EM.o: Visualizar_EM.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -Wall -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Visualizar_EM.o Visualizar_EM.c
+
+${OBJECTDIR}/borrarEMhard.o: borrarEMhard.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -Wall -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/borrarEMhard.o borrarEMhard.c
+
+${OBJECTDIR}/borrar_EMconf.o: borrar_EMconf.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -Wall -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/borrar_EMconf.o borrar_EMconf.c
+
+${OBJECTDIR}/borrar_folder.o: borrar_folder.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -Wall -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/borrar_folder.o borrar_folder.c
+
 .NO_PARALLEL:${OBJECTDIR}/crear\ email.o
 ${OBJECTDIR}/crear\ email.o: crear\ email.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/crear\ email.o crear\ email.c
+	$(COMPILE.c) -g -Wall -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/crear\ email.o crear\ email.c
+
+${OBJECTDIR}/crear_folder.o: crear_folder.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -Wall -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/crear_folder.o crear_folder.c
 
 ${OBJECTDIR}/init.o: init.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/init.o init.c
+	$(COMPILE.c) -g -Wall -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/init.o init.c
 
 ${OBJECTDIR}/list_folder.o: list_folder.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/list_folder.o list_folder.c
+	$(COMPILE.c) -g -Wall -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/list_folder.o list_folder.c
 
 ${OBJECTDIR}/main.o: main.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
+	$(COMPILE.c) -g -Wall -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
 
 ${OBJECTDIR}/reload.o: reload.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/reload.o reload.c
+	$(COMPILE.c) -g -Wall -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/reload.o reload.c
 
 # Subprojects
 .build-subprojects:

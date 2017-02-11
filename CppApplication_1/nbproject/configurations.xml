@@ -14,7 +14,12 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>Visualizar_EM.c</itemPath>
+      <itemPath>borrarEMhard.c</itemPath>
+      <itemPath>borrar_EMconf.c</itemPath>
+      <itemPath>borrar_folder.c</itemPath>
       <itemPath>crear email.c</itemPath>
+      <itemPath>crear_folder.c</itemPath>
       <itemPath>init.c</itemPath>
       <itemPath>list_folder.c</itemPath>
       <itemPath>main.c</itemPath>
@@ -46,11 +51,22 @@
           <incFile>
             <pElem>main.h</pElem>
           </incFile>
+          <warningLevel>2</warningLevel>
         </cTool>
       </compileType>
       <item path="EMDB/Id_folder" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Visualizar_EM.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="borrarEMhard.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="borrar_EMconf.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="borrar_folder.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="crear email.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="crear_folder.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="init.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -87,7 +103,17 @@
       </compileType>
       <item path="EMDB/Id_folder" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Visualizar_EM.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="borrarEMhard.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="borrar_EMconf.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="borrar_folder.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="crear email.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="crear_folder.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="init.c" ex="false" tool="0" flavor2="0">
       </item>
