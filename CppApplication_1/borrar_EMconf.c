@@ -21,7 +21,7 @@
 #endif
 
 
-/*
+
 void borrar_EMconf (smail EMDB[0][0]) { 
     int  _i = 0;
     int  _j = 0;
@@ -45,6 +45,4 @@ void borrar_EMconf (smail EMDB[0][0]) {
     EMDB[id_1][id_2].flag == 0;
   
 }
-
-*/
 

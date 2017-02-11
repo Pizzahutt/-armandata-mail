@@ -21,7 +21,7 @@
 #endif
 
 
-/*
+
 void borrar_EMhard (smail EMDB[0][0], sfolder folders[0], int contador) { 
     
     // la idea es: hago un borrado logico y con una orden a buscar borro el fichero
@@ -29,5 +29,4 @@ void borrar_EMhard (smail EMDB[0][0], sfolder folders[0], int contador) {
     
  
 }
- * 
- * */
+ 

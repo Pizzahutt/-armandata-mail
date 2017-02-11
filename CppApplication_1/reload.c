@@ -21,41 +21,36 @@
 #endif
 
 
-/*
-void reload_conf( smail EMDB[0][0], sfolder *folders[0], int contador) {                                            //pasale las structs
-    
-  
 
+void reload_conf(smail EMDB[0][0], sfolder folders[0], int contador) {        
    
-/*------------------------------------------------------*/
-  /*
     int _i;
     int _j;
     char src[MAXName];
     char dest[MAXName];
     int bufffer[MAXName];
-/*                                                                             // FLAGS DE EMDB A 0
+                                                                             // FLAGS DE EMDB A 0
     for (_i = 0; _i < MAXEmail; _i++  ) {
         for (_j = 0; _j < MAXFolder ; _j++  ) {
-        EMDB[_i][_j]->flag = 0 ;
+         EMDB[_i][_j].flag = 0 ;
        }
     }
     
     
      
     // PARA INBOX FIJO UNOS DATOS 
-    folders[0]->flag = 1;
-    folders[0]->mail_count = 0;
-    strlcpy(folders[0]->folder_name,"INBOX",MAXName);
+    folders[0].flag = 1;
+    folders[0].mail_count = 0;
+    strlcpy(folders[0].folder_name,"INBOX",MAXName);
     
 
     
     // PARA OUTBOX FIJO OTROS DATOS 
     
-    folders[1]->flag = 1;
-    folders[1]->folder_id = 1;
-    folders[1]->mail_count = 0;
-    strlcpy(folders[1]->folder_name,"OUTBOX",MAXName);
+    folders[1].flag = 1;
+    folders[1].folder_id = 1;
+    folders[1].mail_count = 0;
+    strlcpy(folders[1].folder_name,"OUTBOX",MAXName);
  
   
    // INCREMENTO DE CONTADOR Y RECARGA DE FICHERO 
@@ -68,10 +63,10 @@ void reload_conf( smail EMDB[0][0], sfolder *folders[0], int contador) {        
    fprintf(EMDBconf,"\r\n");
    fprintf(EMDBconf,"EMAIL-DB \r\n");
    fprintf(EMDBconf,"_______________ \r\n");
-/*
-   for ( _i = 0; EMDB[_i][_j]->flag != 0 ; _i++ ) {
-          for ( _j = 0; EMDB[_i][_j]->flag != 0 ; _j++ ) {
-                fprintf(EMDBconf,"%d-%s\r\n",EMDB[_i][_j]->mail_id,EMDB[_i][_j]->subject);
+
+   for ( _i = 0; EMDB[_i][_j].flag != 0 ; _i++ ) {
+          for ( _j = 0; EMDB[_i][_j].flag != 0 ; _j++ ) {
+                fprintf(EMDBconf,"%d-%s\r\n",EMDB[_i][_j].mail_id,EMDB[_i][_j].subject);
         }
     }
    
@@ -84,8 +79,8 @@ void reload_conf( smail EMDB[0][0], sfolder *folders[0], int contador) {        
     
   
     
-    for ( _i = 0; folders[_i]->flag != 0 ; _i++ ) {   
-    fprintf(EMDBconf,"%d-%s",folders[_i]->folder_id,folders[_i]->folder_name);    
+    for ( _i = 0; folders[_i].flag != 0 ; _i++ ) {   
+    fprintf(EMDBconf,"%d-%s",folders[_i].folder_id,folders[_i].folder_name);    
     fprintf(EMDBconf,"\r\n");      
     }
     fprintf(EMDBconf,"_______________\r\n");
@@ -93,9 +88,9 @@ void reload_conf( smail EMDB[0][0], sfolder *folders[0], int contador) {        
 /*------------------------------------------------------*/       
   //  fprintf(EMDBconf,"END");
 
-//fclose(EMDBconf);
-//*/
- //  }
+ fclose(EMDBconf);
+
+}
 
 // esto son funciones auxiliares principalmente para mi mismo (diagnotisco), aunque tambien tienen uso en el programa
 
@@ -165,7 +160,7 @@ void test_mail (smail EMDB[0][0]) {
 
 
 
-/*
+
 void show_folder(sfolder folders[0]) {
    int col;
 
@@ -183,7 +178,7 @@ void show_folder(sfolder folders[0]) {
 
   
     
-   */
+   
     
     
     

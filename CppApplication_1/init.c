@@ -23,7 +23,7 @@
 #define DEFINE_THIS
 #endif
 
-/*
+
 void init (smail EMDB[0][0], sfolder folders[50],sbody bodies[0][0]) {
     
     int _i;
@@ -33,7 +33,7 @@ void init (smail EMDB[0][0], sfolder folders[50],sbody bodies[0][0]) {
     int bufffer[50];
   
  
-/*-----------------------------------------------------------------*//*
+/*-----------------------------------------------------------------*/
     // CHECK FOLDER/*
  printf(GREEN"Inicializando programa ... \n");
   if (CreateDirectory(".\\EMDB",NULL)) {
@@ -45,7 +45,7 @@ void init (smail EMDB[0][0], sfolder folders[50],sbody bodies[0][0]) {
   
   /*----------------------------------------------------------------------*/
     // CHECK FICHERO /*
-  /*
+  
     FILE *EMDBconf = fopen(".\\EMDB\\conf.txt", "r");
     fclose(EMDBconf);
     
@@ -64,7 +64,7 @@ void init (smail EMDB[0][0], sfolder folders[50],sbody bodies[0][0]) {
     printf(GREEN"Programa Inicializado \n"RESET);  
     
 /*----------------------------------------------------------------------------------------------------*/
-/*
+
                                                                         // FLAGS DE EMDB A 0
     for (_i = 0; _i < MAXEmail; _i++  ) {
         for (_j = 0; _j < MAXFolder ; _j++  ) {
@@ -74,8 +74,8 @@ void init (smail EMDB[0][0], sfolder folders[50],sbody bodies[0][0]) {
     
     
     
-    
- /*
+ 
+ 
     // PARA INBOX FIJO UNOS DATOS
     folders[0].flag = 1;
     folders[0].folder_id = 0;
@@ -93,7 +93,7 @@ void init (smail EMDB[0][0], sfolder folders[50],sbody bodies[0][0]) {
   
    // INCREMENTO DE CONTADOR Y RECARGA DE FICHERO 
      
-//    reload(&EMDB,&folders,0); 
+    reload(&EMDB,&folders,0); 
     
     
     
@@ -132,13 +132,13 @@ void init (smail EMDB[0][0], sfolder folders[50],sbody bodies[0][0]) {
   
    
    
-/*------------------------------------------------------*/     /*  
+/*------------------------------------------------------*/      
     fprintf(EMDBconf,"END");
-*/
-           /**/ 
-//fclose(EMDBconf);
 
-//   }
+           
+fclose(EMDBconf);
+
+   }
 
     
 

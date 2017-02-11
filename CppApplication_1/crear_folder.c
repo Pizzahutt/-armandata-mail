@@ -21,8 +21,8 @@
 #endif
 
 
-/*
-void crear_folder ( sfolder *folders[0], int contador) {      
+
+void crear_folder ( sfolder folders[0], int contador) {      
     
     
     //-------------------------------------------------------------------------- RECOGIDA DE DATOS
@@ -34,13 +34,13 @@ void crear_folder ( sfolder *folders[0], int contador) {
     contador = contador + 1;                                                    //INCREMENTO DE ID
     
     //-------------------------------------------------------------------------- INI NUEVA CARPETA
-    folders[contador]->flag = 1;
-    folders[contador]->folder_id = contador;
-    strlcpy(folders[contador]->folder_name,buffer,50);
-    folders[contador]->mail_count = 0;
-    folders[contador]->erasable = 1;
+    folders[contador].flag = 1;
+    folders[contador].folder_id = contador;
+    strlcpy(folders[contador].folder_name,buffer,50);
+    folders[contador].mail_count = 0;
+    folders[contador].erasable = 1;
     //-------------------------------------------------------------------------- END
     
 }
- * 
- * */
+ 
+ 

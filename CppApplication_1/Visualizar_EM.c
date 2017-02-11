@@ -21,7 +21,7 @@
 #endif
 
 
-/*
+
 void visualizar_EM (smail EMDB[0][0], sfolder folders[0], int contador) { 
     
     // la idea es: le paso una posicion del array EMDB, me saca por terminal exactamente lo mismo que crear email, parece facil.
@@ -29,5 +29,4 @@ void visualizar_EM (smail EMDB[0][0], sfolder folders[0], int contador) {
     
  
 }
- * 
- */
+ 

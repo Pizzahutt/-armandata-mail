@@ -27,14 +27,14 @@
 
 
 
-/*
+
 void crear_email(smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0], int contador){                //declaro la fucion
    
     /*COGER LA SIGUIENTE POSICION LIBRE EN INBOX PARA ESCRIBIR NUEVO MAIL.LUEGO REALMENTE LO GUARDO EN STRUCT*/
     
     
    /*---------------------------------------------------*/ // get contador /*
-    /**
+    
     int _i; 
     FILE *EMDBconf = fopen(".\\EMDB\\conf.txt", "r+");
     char a;
@@ -42,9 +42,9 @@ void crear_email(smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0], int co
         a = getc(EMDBconf);
     }
     contador  = a; 
-    contador = (int)a - 48;*/
-    //printf("contador:%d \n",contador); 
-    //fclose(EMDBconf);
+    contador = (int)a - 48;
+    printf("contador:%d \n",contador); 
+    fclose(EMDBconf);
    /*----------------------------------------------------*/ 
     
     
@@ -56,7 +56,7 @@ void crear_email(smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0], int co
 
     /*--------------------------------------------------------------------*/
     
-    /*
+   
     
     printf("Interfaz crear mensaje.Rellena los campos siguientes:  ");
 
@@ -69,7 +69,7 @@ void crear_email(smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0], int co
     printf("\n From:");
     getchar();
     scanf("%[^\n]",EMDB[0][contador].from); 
-    //printf("%s",EMDB[0][contador].from); 
+    printf("%s",EMDB[0][contador].from); 
     getchar();
     //-----------------
     printf("\n Fecha:");
@@ -85,11 +85,11 @@ void crear_email(smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0], int co
     getchar();
     //-----------------
     printf("\n Subject:"); 
-    scanf("%[^\n]",&EMDB[0][contador].subject);
+    scanf("%[^\n]",EMDB[0][contador].subject);
     getchar();
     //-----------------
     printf("\n Body:");
-    scanf("%[^\n]",&bodies[0][contador].cuerpo);
+    scanf("%[^\n]",bodies[0][contador].cuerpo);
     getchar();
     EMDB[0][contador].flag = 1;
     bodies[0][contador].flag = 1;
@@ -97,7 +97,7 @@ void crear_email(smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0], int co
     
     /* INTRODUCIR AQUI LA ESCRITURA DEL DOCUMENTO (FPRINTF)*/
     
-    /*preparacion*/ /*
+    /*preparacion*/ 
     char strtemp[MAXName] = "";
     char strmail[MAXName] = "";
     strlcat(strmail, ".//EMDB//",50);
@@ -107,7 +107,7 @@ void crear_email(smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0], int co
    
     printf("%s \n", strmail); 
     /*-------------*/
-    /*
+    
     FILE *mail = fopen(strmail, "r");
     
     if ( mail != NULL ) {
@@ -136,6 +136,6 @@ void crear_email(smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0], int co
    } 
         
         
-   */
+   
 
     

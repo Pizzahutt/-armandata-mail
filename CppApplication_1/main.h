@@ -35,7 +35,7 @@
 typedef struct  {
     int                     flag;
     int                     mail_id;
-    int                     folders_id[MAXFolder];
+    int                     folders_id;
     char                    to[MAXTO];
     char                    CC[MAXCc];
     char                    from[MAXFrom];
