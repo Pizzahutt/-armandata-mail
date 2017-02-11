@@ -63,37 +63,35 @@ void main() {
 
 
 
-//sfolder folders[MAXFolder]; 
+sfolder *folders[MAXFolder]; 
 
         
-//sbody  **bodies[MAXFolder][MAXEmail];
+sbody **bodies[MAXFolder][MAXEmail];
 
 int mail_gl = 0;                   
 int folder_gl = 2;                                                              // CAMBIAR NUM 
 int opcion;
 
-test_mail(EMDB);
-show_mail(EMDB);
+//test_mail(EMDB);
+//show_mail(EMDB);
 
 
 
-//init(bodies,folders,EMDB);
+init(bodies,folders,EMDB);
 
-//borrar_EMconf(EMDB);                
-                   
+
               
     while ((opcion = mostrar_menu()) != 0 ) {
          
         switch (opcion) {
             
             case 1: 
-                    //crear_email(&bodies,&folders,&EMDB, mail_gl);
-                    //mail_gl++;
-                    //reload_conf(&EMDB,&folders, mail_gl); 
-                    //show_mail(&EMDB);
+                    crear_email(bodies,folders,EMDB, mail_gl);
+                    mail_gl++;
+                    reload_conf(EMDB,folders, mail_gl); 
                     break;
             case 2:
-                    //list_folder(&EMDB,&folders);   
+                    list_folder(&EMDB,&folders);   
                     break;
             case 3:
                             
