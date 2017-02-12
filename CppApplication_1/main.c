@@ -11,6 +11,31 @@
 #include <time.h>
 
 
+#ifndef MENU_DEFINE
+#define DEFAULT_FOLDERS 2
+#define A 1
+#define B 2
+#define C 3
+#define D 4
+#define E 5
+#define F 6
+#define G 7
+#define H 8
+#define I 9 
+#define J 10
+#define K 11
+#define L 12
+#define M 13
+#define MAXOPT 13
+
+
+#define MENU_DEFINE
+#endif
+
+
+
+
+
 
 
 /*
@@ -31,13 +56,15 @@ int mostrar_menu () {
         printf("7. Copiar Email \n");
         printf("8. Borrar Email de una carpeta  (borrado físico) \n");
         printf("9. Buscar por string \n");
+        printf("_.Funciones Auxiliares:\n");
         printf("10. Mostrar pos[] Struct Email  \n");
         printf("11. Mostrar pos[] Struct Folder \n");
-        printf("12. Introduce una opción (0 para salir) \n");
+        printf("12. Introducir pos[] Struct Folder \n");
+        printf(". Introduce una opción (0 para salir) \n");
 
         
         scanf("%d", &result);
-        if ( result  > 11 || result < 0) printf("\x1b[31m ERROR \n \x1b[0m");
+        if ( result  > MAXOPT || result < 0) printf("\x1b[31m ERROR \n \x1b[0m");
     return result; 
 }
 
@@ -58,10 +85,7 @@ int mostrar_menu () {
 
 void main() {
 
- smail **EMDB[MAXFolder][MAXEmail];
-
-
-
+smail **EMDB[MAXFolder][MAXEmail];
 
 sfolder *folders[MAXFolder]; 
 
@@ -69,58 +93,68 @@ sfolder *folders[MAXFolder];
 sbody **bodies[MAXFolder][MAXEmail];
 
 int mail_gl = 0;                   
-int folder_gl = 2;                                                              // CAMBIAR NUM 
+int folder_gl = DEFAULT_FOLDERS;                                                               
 int opcion;
-
-//test_mail(EMDB);
-//show_mail(EMDB);
-
 
 
 init(bodies,folders,EMDB);
-
+    
+   
 
               
     while ((opcion = mostrar_menu()) != 0 ) {
          
         switch (opcion) {
             
-            case 1: 
+            case A: 
                     crear_email(bodies,folders,EMDB, mail_gl);
                     mail_gl++;
                     reload_conf(EMDB,folders, mail_gl); 
                     break;
-            case 2:
-                    list_folder(&EMDB,&folders);   
+            case B:
+                    list_folder(EMDB,folders);   
                     break;
-            case 3:
-                            
+            case C: 
+                    visualizar_EM(EMDB,folders,bodies);
                     break;
-            case 4:
-                   
+            case D:
+                    borrar_EMconf(EMDB);
+                    mail_gl--;
+                    reload_conf(EMDB,folders, mail_gl); 
                     break;
-            case 5:
-                            
+            case E:
+                    crear_folder(folders,folder_gl);
+                    folder_gl++;
+                    reload_conf(EMDB,folders, mail_gl); 
                     break;
-            case 6:
-                
+            case F:
+                    borrar_folder(folders,EMDB,folder_gl);
+                    folder_gl--;
+                    reload_conf(EMDB,folders, mail_gl); 
                     break;
-            case 7:
-                
+            case G:
+                    copiar_mail();
+                    mail_gl++; 
+                    reload_conf(EMDB,folders, mail_gl); 
                     break;                    
-            case 8:
-                
+            case H:
+                    borrar_EMhard_mod(EMDB,folders,mail_gl);
+                    mail_gl--;
+                    reload_conf(EMDB,folders, mail_gl); 
                     break;            
-            case 9:
-                
+            case I:
+                    buscar_string(EMDB,folders,bodies);
                     break; 
-            case 10:
-                   // show_mail(&EMDB);
+            case J:
+                    show_mail(EMDB);
                     break;
-            case 11:
-                   // show_folder(&EMDB);
+            case K:
+                    show_folder(EMDB);
                     break;
-                    
+            case L:
+                    test_mail(EMDB);
+                    break;
+         
                    
         }
     } 

@@ -5,31 +5,18 @@
 #include <windows.h>
 #include <string.h>
 #include <unistd.h>
-#ifndef DEFINE_THIS
-#define RED     "\x1b[31m"
-#define GREEN   "\x1b[32m"
-#define YELLOW  "\x1b[33m"
-#define BLUE    "\x1b[34m"
-#define MAGENTA "\x1b[35m"
-#define CYAN    "\x1b[36m"
-#define RESET   "\x1b[0m"
-#define MAXEmail        100             //1
-#define MAXFolder       100             //2
-#define MAXBodies       100             //2
-#define cont_pos        13
-#define DEFINE_THIS
-#endif
-
+#define EVEN 2
 
 
 void reload_conf(smail EMDB[0][0], sfolder folders[0], int contador) {        
    
     int _i;
     int _j;
+    int check;
     char src[MAXName];
     char dest[MAXName];
     int bufffer[MAXName];
-                                                                             // FLAGS DE EMDB A 0
+                                                                                
     for (_i = 0; _i < MAXEmail; _i++  ) {
         for (_j = 0; _j < MAXFolder ; _j++  ) {
          EMDB[_i][_j].flag = 0 ;
@@ -63,11 +50,14 @@ void reload_conf(smail EMDB[0][0], sfolder folders[0], int contador) {
    fprintf(EMDBconf,"\r\n");
    fprintf(EMDBconf,"EMAIL-DB \r\n");
    fprintf(EMDBconf,"_______________ \r\n");
+                                                                                
+   for ( _i = 0; folders[_i].flag == 1 ; _i++ ) {
+          for ( _j = 0; EMDB[_i][_j].flag == 1 ; _j++ ) {
 
-   for ( _i = 0; EMDB[_i][_j].flag != 0 ; _i++ ) {
-          for ( _j = 0; EMDB[_i][_j].flag != 0 ; _j++ ) {
-                fprintf(EMDBconf,"%d-%s\r\n",EMDB[_i][_j].mail_id,EMDB[_i][_j].subject);
-        }
+                  
+            }
+        if ( _i % EVEN == 0 )  
+        fprintf(EMDBconf,"%d-%s\r\n",EMDB[_i][_j].mail_id,EMDB[_i][_j].subject);   
     }
    
    
@@ -79,14 +69,14 @@ void reload_conf(smail EMDB[0][0], sfolder folders[0], int contador) {
     
   
     
-    for ( _i = 0; folders[_i].flag != 0 ; _i++ ) {   
+    for ( _i = 0; folders[_i].flag == 1 ; _i++ ) {   
     fprintf(EMDBconf,"%d-%s",folders[_i].folder_id,folders[_i].folder_name);    
     fprintf(EMDBconf,"\r\n");      
     }
     fprintf(EMDBconf,"_______________\r\n");
  
 /*------------------------------------------------------*/       
-  //  fprintf(EMDBconf,"END");
+    fprintf(EMDBconf,"END");
 
  fclose(EMDBconf);
 
@@ -126,6 +116,7 @@ void test_mail (smail EMDB[0][0]) {
     scanf("%d", &fila);
 
     
+    EMDB[col][fila].flag = 1;
     
     printf("\n From:");
     getchar();
@@ -148,7 +139,7 @@ void test_mail (smail EMDB[0][0]) {
     scanf("%[^\n]",&EMDB[col][fila].subject);
     getchar();
     //------------------
-    EMDB[col][fila].flag = 1;
+    
     
     
     

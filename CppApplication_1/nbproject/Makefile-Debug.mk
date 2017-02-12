@@ -36,9 +36,11 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Visualizar_EM.o \
-	${OBJECTDIR}/borrarEMhard.o \
 	${OBJECTDIR}/borrar_EMconf.o \
+	${OBJECTDIR}/borrar_EMhard.o \
 	${OBJECTDIR}/borrar_folder.o \
+	${OBJECTDIR}/buscar_string.o \
+	${OBJECTDIR}/copiar_mail.o \
 	${OBJECTDIR}/crear\ email.o \
 	${OBJECTDIR}/crear_folder.o \
 	${OBJECTDIR}/init.o \
@@ -76,20 +78,30 @@ ${OBJECTDIR}/Visualizar_EM.o: Visualizar_EM.c
 	${RM} "$@.d"
 	$(COMPILE.c) -g -Wall -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Visualizar_EM.o Visualizar_EM.c
 
-${OBJECTDIR}/borrarEMhard.o: borrarEMhard.c
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g -Wall -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/borrarEMhard.o borrarEMhard.c
-
 ${OBJECTDIR}/borrar_EMconf.o: borrar_EMconf.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -Wall -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/borrar_EMconf.o borrar_EMconf.c
 
+${OBJECTDIR}/borrar_EMhard.o: borrar_EMhard.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -Wall -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/borrar_EMhard.o borrar_EMhard.c
+
 ${OBJECTDIR}/borrar_folder.o: borrar_folder.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -Wall -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/borrar_folder.o borrar_folder.c
+
+${OBJECTDIR}/buscar_string.o: buscar_string.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -Wall -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/buscar_string.o buscar_string.c
+
+${OBJECTDIR}/copiar_mail.o: copiar_mail.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -Wall -include main.h -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/copiar_mail.o copiar_mail.c
 
 .NO_PARALLEL:${OBJECTDIR}/crear\ email.o
 ${OBJECTDIR}/crear\ email.o: crear\ email.c

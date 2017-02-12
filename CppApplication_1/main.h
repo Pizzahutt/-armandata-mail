@@ -26,6 +26,12 @@
 #define MAXSubject      100             //8
 #define MAXName         50             //9
 #define FLAGSize        0     
+#define DECLARED
+
+
+
+
+
 
 /*---- 2.STRUCTS ------------------------------*/
 
@@ -63,23 +69,29 @@ typedef struct  {
 }sbody;
 
 
-
-
-/*---- 4. BBDDs / ARRAYs ------------------------------*/
-
-
-
-
-#define DECLARED
 #endif
+
+/*---- 2.DECLARACIONES DE FUNCION ------------------------------*/
+
+#ifndef DEFINE_THIS
+#define RED     "\x1b[31m"
+#define GREEN   "\x1b[32m"
+#define YELLOW  "\x1b[33m"
+#define BLUE    "\x1b[34m"
+#define MAGENTA "\x1b[35m"
+#define CYAN    "\x1b[36m"
+#define RESET   "\x1b[0m"
+#define MAXEmail        100             //1
+#define MAXFolder       100             //2
+#define MAXName         50             //2
+#define MAXBodies       100             //2
+#define cont_pos        13
+#define DEFINE_THIS
+#endif
+
+
 /*---------5.FUNCIONES -------------------------*/
 
-//auxiliares
-
-
-
-
-// principales
 
 void init();
 void crear_email();
@@ -93,6 +105,7 @@ void crear_folder();
 void borrar_folder();
 void visualizar_EM();
 void borrar_EMconf();
-void borrar_EMhard();
+void borrar_EMhardmod();
+
 #define reload
 #endif

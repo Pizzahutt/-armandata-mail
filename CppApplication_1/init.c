@@ -9,28 +9,16 @@
 #include <unistd.h>
 #include <strings.h>
 
-#ifndef DEFINE_THIS
-#define RED     "\x1b[31m"
-#define GREEN   "\x1b[32m"
-#define YELLOW  "\x1b[33m"
-#define BLUE    "\x1b[34m"
-#define MAGENTA "\x1b[35m"
-#define CYAN    "\x1b[36m"
-#define RESET   "\x1b[0m"
-#define MAXEmail        100             //1
-#define MAXFolder       100             //2
-#define MAXBodies       100             //2
-#define DEFINE_THIS
-#endif
 
 
-void init (smail EMDB[0][0], sfolder folders[50],sbody bodies[0][0]) {
+
+void init (smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0]) {
     
-    int _i;
-    int _j;
-    char src[50];
-    char dest[50];
-    int bufffer[50];
+    int     _i;
+    int     _j;
+    char    src[MAXName];
+    char    dest[MAXName];
+    int     bufffer[MAXName];
   
  
 /*-----------------------------------------------------------------*/

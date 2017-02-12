@@ -8,15 +8,19 @@
 
 
 
-void visualizar_EM (smail EMDB[0][0], sfolder folders[0], sbody bodies[0] ) { 
-  
+
+void buscar_string (smail EMDB[0][0],sfolder folders[0] ,sbody bodies[0]) { 
+    
     int _i=0;
     int _j=0;
     int indice;
     int indice_2;
     
-    printf("Introduce el numero de la carpeta a listar:\n");
+    char buffer[MAXName];
+    char buffer_2[MAXName];
+    char copia[MAXName];
     
+    printf("Introduce el numero de la carpeta a listar:\n");
     
       for ( _i = 0; folders[_i].flag != 0 ; _i++ ) {   
     printf("%d-%s",folders[_i].folder_id,folders[_i].folder_name);    
@@ -36,25 +40,27 @@ void visualizar_EM (smail EMDB[0][0], sfolder folders[0], sbody bodies[0] ) {
 
     } 
     
-    printf("(Introduce id de email):\n");
-    scanf("%d",&indice_2);
     
+    
+       printf("Introduce el texto a buscar:\n");
+       scanf("%[^\n]",&buffer);
+        
+       sprintf(copia,"%s",bodies[indice].cuerpo);
+       strcpy(copia,bodies[indice].cuerpo);
+       
+       
+       
+       
+       while (EMDB[indice][_i].flag == 1 ) {
+           
+      
+       strcpy( (buffer_2) , (strstr(copia,buffer)) );
+         if (strcmp(buffer_2,buffer) == 1 ) {
+           printf("Coincidencia en email id numero %d",EMDB[indice][_i].folders_id);   
+        }
+    }
 
-    
-    
-    
-    printf("FROM: %s",EMDB[indice][indice_2].from);
-    printf("\n");
-    printf("TO: %s",EMDB[indice][indice_2].to);
-    printf("\n");
-    printf("CC: %s",EMDB[indice][indice_2].CC);
-    printf("\n");
-    printf("ASUNTO: %s",EMDB[indice][indice_2].subject);
-    printf("\n");
-    printf("%s",bodies[indice].cuerpo);
-    printf("\n");
-    printf("FIN DE MENSAJE");
-    
-    /*--------------------------------------------------------------------------*/
+      printf("Programa terminado");
+      
 }
- 
+

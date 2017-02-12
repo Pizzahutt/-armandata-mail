@@ -5,27 +5,14 @@
 #include <windows.h>
 #include <string.h>
 #include <unistd.h>
-#ifndef DEFINE_THIS
-#define RED     "\x1b[31m"
-#define GREEN   "\x1b[32m"
-#define YELLOW  "\x1b[33m"
-#define BLUE    "\x1b[34m"
-#define MAGENTA "\x1b[35m"
-#define CYAN    "\x1b[36m"
-#define RESET   "\x1b[0m"
-#define MAXEmail        100             //1
-#define MAXFolder       100             //2
-#define MAXBodies       100             //2
-#define cont_pos        13
-#define DEFINE_THIS
-#endif
+
 
 
 void borrar_folder (sfolder folders[0],smail EMDB[0][0], int contador) {      
     int _i;
     int _j;
         
-    int id;                                                            //VARIABLE TEMPORAL
+    int id;                                                            
     printf("Introduce el ID de la carpeta a borrar");
     scanf("%d",&id);
     

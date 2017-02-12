@@ -10,27 +10,13 @@
 #include <windows.h>
 #include <string.h>
 #include <unistd.h>
-#ifndef DEFINE_THIS
-#define RED     "\x1b[31m"
-#define GREEN   "\x1b[32m"
-#define YELLOW  "\x1b[33m"
-#define BLUE    "\x1b[34m"
-#define MAGENTA "\x1b[35m"
-#define CYAN    "\x1b[36m"
-#define RESET   "\x1b[0m"
-#define MAXEmail        100             //1
-#define MAXFolder       100             //2
-#define MAXBodies       100             //2
-#define cont_pos        13
-#define DEFINE_THIS
-#endif
-
+#define ASCII_VAL 48
 
 
 
 void crear_email(smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0], int contador){                //declaro la fucion
    
-    /*COGER LA SIGUIENTE POSICION LIBRE EN INBOX PARA ESCRIBIR NUEVO MAIL.LUEGO REALMENTE LO GUARDO EN STRUCT*/
+  
     
     
    /*---------------------------------------------------*/ // get contador /*
@@ -42,7 +28,7 @@ void crear_email(smail EMDB[0][0], sfolder folders[0],sbody bodies[0][0], int co
         a = getc(EMDBconf);
     }
     contador  = a; 
-    contador = (int)a - 48;
+    contador = (int)a - ASCII_VAL;
     printf("contador:%d \n",contador); 
     fclose(EMDBconf);
    /*----------------------------------------------------*/ 
